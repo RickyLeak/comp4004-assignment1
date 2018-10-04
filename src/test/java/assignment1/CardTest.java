@@ -1,16 +1,31 @@
 package assignment1;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class CardTest extends TestCase {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import org.junit.Test;
+
+public class CardTest {
 	
-	public void getValue() {
-		Card c = new Card();
+	@Test
+	public void getValue() throws FileNotFoundException{
+		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
+		String input = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		
+		Card c = new Card(input);
 		assertEquals(5, c.getValue());
 	}
 	
-	public void getSuit() {
-		Card c = new Card();
+	@Test
+	public void getSuit() throws FileNotFoundException {
+		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
+		String input = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		
+		Card c = new Card(input);
 		assertEquals("S", c.getSuit());
 	}
 }
