@@ -24,7 +24,8 @@ public class HandTest {
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
 		
-		assertTrue(input.hasPair());
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasPair());
 	}
 	
 	@Test
@@ -33,7 +34,8 @@ public class HandTest {
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
 		
-		assertTrue(input.hasTriple());
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasTriple());
 	}
 	
 	@Test
@@ -42,7 +44,8 @@ public class HandTest {
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
 		
-		assertTrue(input.hasFullHouse());
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasFullHouse());
 	}
 
 }
