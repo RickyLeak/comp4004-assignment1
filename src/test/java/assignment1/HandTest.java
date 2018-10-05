@@ -17,5 +17,32 @@ public class HandTest {
 		Hand hand = new Hand(input);
 		assertTrue(hand.getCards().size() == 5);
 	}
+	
+	@Test
+	public void hasPairTest() {
+		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
+		String input = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		
+		assertTrue(input.hasPair());
+	}
+	
+	@Test
+	public void hasTripleTest() {
+		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
+		String input = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		
+		assertTrue(input.hasTriple());
+	}
+	
+	@Test
+	public void hasFullHouseTest() {
+		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
+		String input = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		
+		assertTrue(input.hasFullHouse());
+	}
 
 }
