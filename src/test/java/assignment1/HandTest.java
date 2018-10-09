@@ -50,7 +50,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasFourOfAKindTest() {
+	public void hasFourOfAKindTest() throws FileNotFoundException {
 		getInput();
 		
 		Hand hand = new Hand(input);
@@ -58,7 +58,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasDoublePairTest() {
+	public void hasDoublePairTest() throws FileNotFoundException {
 		getInput();
 		
 		Hand hand = new Hand(input);
