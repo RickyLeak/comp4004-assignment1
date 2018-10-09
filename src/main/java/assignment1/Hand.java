@@ -219,4 +219,9 @@ public class Hand {
 		}
 		return returnString;
 	}
+
+	public boolean hasStraightFlush() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
