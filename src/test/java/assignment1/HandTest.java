@@ -77,4 +77,9 @@ public class HandTest {
 	public void hasRoyalFlushTest() throws FileNotFoundException{
 		assertTrue(hand.hasRoyalFlush());
 	}
+	
+	@Test
+	public void evaluateHandTest() throws FileNotFoundException{
+		System.out.println(hand.evaluateHand());
+	}
 }

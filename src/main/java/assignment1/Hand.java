@@ -236,4 +236,9 @@ public class Hand {
 		}
 		return false;
 	}
+
+	public char[] evaluateHand() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
