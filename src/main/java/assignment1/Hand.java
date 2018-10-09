@@ -131,4 +131,27 @@ public class Hand {
 		}
 		return false;
 	}
+
+	public String getHighestCard() {
+		int highest = 0;
+		int index = -1;
+		for(int i = 0; i < cards.size(); i++) {
+			String temp = cards.get(i).getValue();
+			if(temp.equals("A")) {
+				temp = "14";
+			}else if(temp.equals("K")) {
+				temp = "13";
+			}else if(temp.equals("Q")) {
+				temp = "12";
+			}else if(temp.equals("J")) {
+				temp = "11";
+			}
+			
+			if(Integer.parseInt(temp) > highest) {
+				highest = Integer.parseInt(temp);
+				index = i;
+			}
+		}
+		return cards.get(index).getValue();
+	}
 }

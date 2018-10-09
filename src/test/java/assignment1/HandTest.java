@@ -66,11 +66,11 @@ public class HandTest {
 	}
 
 	@Test
-	public void getHighestCardTest() {
+	public void getHighestCardTest() throws FileNotFoundException {
 		getInput();
 		
 		Hand hand = new Hand(input);
-		assertEquals("K", hand.getHighestCard());
+		assertEquals("A", hand.getHighestCard());
 	}
 	
 }
