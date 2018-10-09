@@ -65,4 +65,12 @@ public class HandTest {
 		assertTrue(hand.hasDoublePair());
 	}
 
+	@Test
+	public void getHighestCardTest() {
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertEquals("K", hand.getHighestCard());
+	}
+	
 }
