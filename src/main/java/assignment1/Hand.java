@@ -184,7 +184,12 @@ public class Hand {
 	}
 
 	public boolean hasFlush() {
-		// TODO Auto-generated method stub
-		return false;
+		String suit = cards.get(0).getSuit();
+		for(int i = 0; i < cards.size(); i++) {
+			if(!cards.get(i).getSuit().equals(suit)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
