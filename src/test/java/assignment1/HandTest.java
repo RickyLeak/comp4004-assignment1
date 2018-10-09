@@ -90,4 +90,12 @@ public class HandTest {
 		assertTrue(hand.hasFlush());
 	}
 	
+	@Test
+	public void hasStraightFlushTest() throws FileNotFoundException{
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasStraightFlush());
+	}
+	
 }
