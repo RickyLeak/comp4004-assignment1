@@ -221,7 +221,10 @@ public class Hand {
 	}
 
 	public boolean hasStraightFlush() {
-		// TODO Auto-generated method stub
-		return false;
+		if(this.hasFlush() && this.hasStraight()) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 }
