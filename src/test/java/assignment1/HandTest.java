@@ -73,4 +73,20 @@ public class HandTest {
 		assertEquals("A", hand.getHighestCard());
 	}
 	
+	@Test
+	public void hasStraight() {
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasStraight());
+	}
+	
+	@Test
+	public void hasFlushTest() {
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasFlush());
+	}
+	
 }

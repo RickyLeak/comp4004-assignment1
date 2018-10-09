@@ -154,4 +154,14 @@ public class Hand {
 		}
 		return cards.get(index).getValue();
 	}
+
+	public boolean hasStraight() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean hasFlush() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
