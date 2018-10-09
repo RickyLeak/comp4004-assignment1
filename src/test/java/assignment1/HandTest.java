@@ -7,12 +7,19 @@ import java.util.Scanner;
 import org.junit.Test;
 
 public class HandTest {
-
+	public String input = "";
+	
+	private void getInput() throws FileNotFoundException {
+		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
+		String inputFile = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		
+		input = inputFile;
+	}
+	
 	@Test
 	public void createHand() throws FileNotFoundException {
-		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
-		String input = scanner.useDelimiter("\\Z").next();
-		scanner.close();
+		getInput();
 
 		Hand hand = new Hand(input);
 		assertTrue(hand.getCards().size() == 5);
@@ -20,9 +27,7 @@ public class HandTest {
 	
 	@Test
 	public void hasPairTest() throws FileNotFoundException {
-		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
-		String input = scanner.useDelimiter("\\Z").next();
-		scanner.close();
+		getInput();
 		
 		Hand hand = new Hand(input);
 		assertTrue(hand.hasPair());
@@ -30,9 +35,7 @@ public class HandTest {
 	
 	@Test
 	public void hasTripleTest() throws FileNotFoundException{
-		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
-		String input = scanner.useDelimiter("\\Z").next();
-		scanner.close();
+		getInput();
 		
 		Hand hand = new Hand(input);
 		assertTrue(hand.hasTriple());
@@ -40,12 +43,26 @@ public class HandTest {
 	
 	@Test
 	public void hasFullHouseTest() throws FileNotFoundException{
-		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
-		String input = scanner.useDelimiter("\\Z").next();
-		scanner.close();
+		getInput();
 		
 		Hand hand = new Hand(input);
 		assertTrue(hand.hasFullHouse());
+	}
+	
+	@Test
+	public void hasFourOfAKindTest() {
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasFourOfAKind());
+	}
+	
+	@Test
+	public void hasDoublePairTest() {
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasDoublePair());
 	}
 
 }

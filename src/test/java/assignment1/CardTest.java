@@ -10,17 +10,17 @@ import org.junit.Test;
 public class CardTest {
 	
 	@Test
-	public void getValue() throws FileNotFoundException{
+	public void getValueTest() throws FileNotFoundException{
 		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
 		
 		Card c = new Card(input);
-		assertEquals(5, c.getValue());
+		assertEquals("5", c.getValue());
 	}
 	
 	@Test
-	public void getSuit() throws FileNotFoundException {
+	public void getSuitTest() throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
