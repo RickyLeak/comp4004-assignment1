@@ -229,7 +229,11 @@ public class Hand {
 	}
 
 	public boolean hasRoyalFlush() {
-		// TODO Auto-generated method stub
+		if(this.getHighestCard().equals("A")) {
+			if(this.hasFlush() && this.hasStraight()) {
+				return true;
+			}
+		}
 		return false;
 	}
 }
