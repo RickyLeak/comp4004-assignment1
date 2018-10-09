@@ -11,6 +11,7 @@ import org.junit.Test;
 
 public class GameTest {
 	public String input;
+	public Game game;
 	
 	private void setUpGame()throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
@@ -18,12 +19,12 @@ public class GameTest {
 		scanner.close();
 		
 		input = inputFile;
+		game = new Game(input);
 	}
 	
 	@Test
 	public void test() throws FileNotFoundException {
 		setUpGame();
-		Game game = new Game(input);
 		System.out.println("Welcome to the poker game application!");
 		
 		System.out.println("AIP's Hand : " + game.getHandAIP());
