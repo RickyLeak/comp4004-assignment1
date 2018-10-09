@@ -11,7 +11,7 @@ public class Hand {
 		cards = new ArrayList<Card>();
 		String[] input_processed = input.split("\\s+");
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < input_processed.length; i++) {
 			cards.add(new Card(input_processed[i]));
 		}
 	}
@@ -210,5 +210,13 @@ public class Hand {
 			}
 		}
 		return true;
+	}
+	
+	public String toString() {
+		String returnString = "";
+		for(Card c: cards) {
+			returnString += (c.getSuit() + c.getValue() + " ");
+		}
+		return returnString;
 	}
 }

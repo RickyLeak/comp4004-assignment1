@@ -23,6 +23,7 @@ public class HandTest {
 
 		Hand hand = new Hand(input);
 		assertTrue(hand.getCards().size() == 5);
+		System.out.println(hand.toString());
 	}
 	
 	@Test
