@@ -80,6 +80,8 @@ public class HandTest {
 	
 	@Test
 	public void evaluateHandTest() throws FileNotFoundException{
-		System.out.println(hand.evaluateHand());
+		String evaluated = "";
+		evaluated = hand.evaluateHand();
+		System.out.println(evaluated);
 	}
 }

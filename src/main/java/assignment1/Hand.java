@@ -237,8 +237,28 @@ public class Hand {
 		return false;
 	}
 
-	public char[] evaluateHand() {
-		// TODO Auto-generated method stub
-		return null;
+	public String evaluateHand() {
+		if(this.hasRoyalFlush()) {
+			return "Royal Flush";
+		}else if(this.hasStraightFlush()) {
+			return "Straight Flush";
+		}else if(this.hasFourOfAKind()) {
+			return "Four Of A Kind";
+		}else if(this.hasFullHouse()) {
+			return "Full House";
+		}else if(this.hasFlush()) {
+			return "Flush";
+		}else if(this.hasStraight()) {
+			return "Straight";
+		}else if(this.hasTriple()) {
+			return "Triple";
+		}else if(this.hasDoublePair()) {
+			return "Double Pair";
+		}else if(this.hasPair()) {
+			return "Pair";
+		}else {
+			String highestCard = this.getHighestCard();
+			return "Highest Card: " + highestCard;
+		}
 	}
 }
