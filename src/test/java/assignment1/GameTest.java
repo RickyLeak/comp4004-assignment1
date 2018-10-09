@@ -21,7 +21,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void test() throws FileNotFoundException {
 		setUpGame();
 		Game game = new Game(input);
 	}
