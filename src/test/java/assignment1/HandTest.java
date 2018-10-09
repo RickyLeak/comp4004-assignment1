@@ -98,4 +98,11 @@ public class HandTest {
 		assertTrue(hand.hasStraightFlush());
 	}
 	
+	@Test
+	public void hasRoyalFlushTest() throws FileNotFoundException{
+		getInput();
+		
+		Hand hand = new Hand(input);
+		assertTrue(hand.hasRoyalFlush());
+	}
 }
