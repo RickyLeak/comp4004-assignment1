@@ -74,7 +74,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasStraight() {
+	public void hasStraight() throws FileNotFoundException {
 		getInput();
 		
 		Hand hand = new Hand(input);
@@ -82,7 +82,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasFlushTest() {
+	public void hasFlushTest() throws FileNotFoundException{
 		getInput();
 		
 		Hand hand = new Hand(input);

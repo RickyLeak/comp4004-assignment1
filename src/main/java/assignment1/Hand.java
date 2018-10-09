@@ -1,6 +1,7 @@
 package assignment1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hand {
 	private ArrayList<Card> cards;
@@ -156,8 +157,30 @@ public class Hand {
 	}
 
 	public boolean hasStraight() {
-		// TODO Auto-generated method stub
-		return false;
+		ArrayList<Integer> easyArray = new ArrayList<Integer>();
+		for(int i = 0; i < cards.size(); i++) {
+			String temp = cards.get(i).getValue();
+			if(temp.equals("A")) {
+				temp = "14";
+			}else if(temp.equals("K")) {
+				temp = "13";
+			}else if(temp.equals("Q")) {
+				temp = "12";
+			}else if(temp.equals("J")) {
+				temp = "11";
+			}
+			
+			easyArray.add(Integer.parseInt(temp));
+		}
+		//Now sort and search the array for consecutive values
+		Collections.sort(easyArray);
+		boolean stillStraight = true;
+		for(int j = 0; j < easyArray.size() - 1; j++) {
+			if(easyArray.get(j) != easyArray.get(j+1) - 1) {
+				stillStraight = false;
+			}
+		}
+		return stillStraight;
 	}
 
 	public boolean hasFlush() {
