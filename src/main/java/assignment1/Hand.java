@@ -227,4 +227,9 @@ public class Hand {
 			return false;
 		}
 	}
+
+	public boolean hasRoyalFlush() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
