@@ -158,26 +158,45 @@ public class Hand {
 
 	public boolean hasStraight() {
 		ArrayList<Integer> easyArray = new ArrayList<Integer>();
+		ArrayList<Integer> easyArrayForAce = new ArrayList<Integer>();
 		for(int i = 0; i < cards.size(); i++) {
 			String temp = cards.get(i).getValue();
+			String tempforAce = cards.get(i).getValue();
 			if(temp.equals("A")) {
 				temp = "14";
+				tempforAce = "1";
 			}else if(temp.equals("K")) {
 				temp = "13";
+				tempforAce = "13";
 			}else if(temp.equals("Q")) {
 				temp = "12";
+				tempforAce = "12";
 			}else if(temp.equals("J")) {
 				temp = "11";
+				tempforAce = "11";
 			}
-			
 			easyArray.add(Integer.parseInt(temp));
+			easyArrayForAce.add(Integer.parseInt(tempforAce));
 		}
-		//Now sort and search the array for consecutive values
+		
+		//ACE CASE 1: High Ace (looking for highest straight)
 		Collections.sort(easyArray);
 		boolean stillStraight = true;
 		for(int j = 0; j < easyArray.size() - 1; j++) {
 			if(easyArray.get(j) != easyArray.get(j+1) - 1) {
 				stillStraight = false;
+			}
+		}
+
+		//ACE CASE 2: Low Ace (looking for lowest straight)
+		if(stillStraight == false) {
+			//Reset and try with new ace value
+			stillStraight = true;
+			Collections.sort(easyArrayForAce);
+			for(int k = 0; k < easyArrayForAce.size() - 1; k++) {
+				if(easyArrayForAce.get(k) != easyArrayForAce.get(k+1) - 1) {
+					stillStraight = false;
+				}
 			}
 		}
 		return stillStraight;
