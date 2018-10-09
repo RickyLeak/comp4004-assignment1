@@ -84,4 +84,9 @@ public class HandTest {
 		evaluated = hand.evaluateHand();
 		System.out.println(evaluated);
 	}
+	
+	@Test
+	public void oneCardAwayRoyalFlushTest() throws FileNotFoundException{
+		assertTrue(hand.oneCardAwayRoyalFlush() > 0);
+	}
 }

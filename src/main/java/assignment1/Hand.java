@@ -261,4 +261,9 @@ public class Hand {
 			return "Highest Card: " + highestCard;
 		}
 	}
+
+	public int oneCardAwayRoyalFlush() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
 }
