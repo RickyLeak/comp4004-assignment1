@@ -19,7 +19,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasPairTest() {
+	public void hasPairTest() throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
@@ -29,7 +29,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasTripleTest() {
+	public void hasTripleTest() throws FileNotFoundException{
 		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
@@ -39,7 +39,7 @@ public class HandTest {
 	}
 	
 	@Test
-	public void hasFullHouseTest() {
+	public void hasFullHouseTest() throws FileNotFoundException{
 		Scanner scanner = new Scanner(new File("src\\test\\resources\\input.txt"));
 		String input = scanner.useDelimiter("\\Z").next();
 		scanner.close();
