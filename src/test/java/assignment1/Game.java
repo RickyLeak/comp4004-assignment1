@@ -30,4 +30,9 @@ public class Game {
 	public Hand getExtraCards() {
 		return extraCards;
 	}
+
+	public String exchangeOrNot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

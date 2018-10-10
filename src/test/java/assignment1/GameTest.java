@@ -38,6 +38,9 @@ public class GameTest {
 			System.out.println("AIP's Hand : " + g.getHandAIP());
 			System.out.println("Hand to Defeat: " + g.getHandtoBeat());
 			System.out.println("Extra Cards: " + g.getExtraCards());
+			
+			System.out.println("\nAIP is applying its special strategy. . .");
+			System.out.println("AIP chooses to " + g.exchangeOrNot());
 		}
 	}
 }
