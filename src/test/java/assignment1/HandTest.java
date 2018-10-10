@@ -174,9 +174,9 @@ public class HandTest {
 	public void singlePairTest() throws FileNotFoundException{
 		boolean result = hand.singlePair();
 		if(result) {
-			System.out.println("There is a single pair");
+			//System.out.println("There is a single pair");
 		}else {
-			System.out.println("Cannot find a single pair");
+			//System.out.println("Cannot find a single pair");
 		}
 		assertTrue(result);
 	}

@@ -298,6 +298,8 @@ public class Hand {
 			}
 		}
 		
+		if(suitList.size() != 4) return -1;
+		
 		//Check for suits to be all the same
 		for(int i = 0; i < suitList.size()-1; i++) {
 			if(suitList.get(i).equals(suitList.get(i+1))) {

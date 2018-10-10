@@ -32,7 +32,27 @@ public class Game {
 	}
 
 	public String exchangeOrNot() {
-		// TODO Auto-generated method stub
-		return null;
+		String evaluation = handAIP.evaluateHand();
+		System.out.println("AIP has a " + evaluation);
+		
+		if(evaluation.equals("Royal Flush"))	return "NOT EXCHANGE";
+		if(evaluation.equals("Straight Flush"))	return "NOT EXCHANGE";
+		if(evaluation.equals("Four Of A Kind"))	return "NOT EXCHANGE";
+		if(evaluation.equals("Full House"))		return "NOT EXCHANGE";
+		if(evaluation.equals("Flush"))			return "NOT EXCHANGE";
+		if(evaluation.equals("Straight"))		return "NOT EXCHANGE";
+		
+		if(handAIP.oneCardAwayRoyalFlush()>0)		return "EXCHANGE";
+		if(handAIP.oneCardAwayStraightFlush()>0)	return "EXCHANGE";
+		if(handAIP.hasTriple())						return "EXCHANGE";
+		if(handAIP.oneCardAwayFlush()>0)			return "EXCHANGE";
+		if(handAIP.oneCardAwayStraight()>0)			return "EXCHANGE";
+		
+		if(handAIP.threeCardsSameSuit())			return "EXCHANGE";
+		if(handAIP.exactlyThreeCardsSequence())		return "EXCHANGE";
+		if(handAIP.hasDoublePair())					return "EXCHANGE";
+		if(handAIP.hasPair())						return "EXCHANGE";
+		
+		return "EXCHANGE";
 	}
 }

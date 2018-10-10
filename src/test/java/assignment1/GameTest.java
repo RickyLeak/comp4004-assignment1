@@ -30,10 +30,11 @@ public class GameTest {
 	@Test
 	public void test() throws FileNotFoundException {
 		setUpGame();
-		
+		int GameNumber = 0;
 		for(Game g: Games) {
+			GameNumber++;
 			System.out.println("---------------------------------------");
-			System.out.println("Welcome to the poker game application!");
+			System.out.println("Welcome to Poker Game #" + GameNumber);
 			
 			System.out.println("AIP's Hand : " + g.getHandAIP());
 			System.out.println("Hand to Defeat: " + g.getHandtoBeat());
