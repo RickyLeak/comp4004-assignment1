@@ -108,9 +108,20 @@ public class HandTest {
 	public void oneCardAwayFlushTest() throws FileNotFoundException{
 		int result = hand.oneCardAwayFlush();
 		if(result > 0) {
+			//System.out.println("The card to switch out is: " + result);
+		}else {
+			//System.out.println("The input cards do not qualify for oneCardAwayFlush");
+		}
+		assertTrue(result > 0);
+	}
+	
+	@Test
+	public void oneCardAwayStraightTest() throws FileNotFoundException{
+		int result = hand.oneCardAwayStraight();
+		if(result > 0) {
 			System.out.println("The card to switch out is: " + result);
 		}else {
-			System.out.println("The input cards do not qualify for oneCardAwayFlush");
+			System.out.println("The input cards do not qualify for oneCardAwayStraight");
 		}
 		assertTrue(result > 0);
 	}

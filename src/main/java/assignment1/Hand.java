@@ -419,4 +419,9 @@ public class Hand {
 		}
 		return theCard;
 	}
+
+	public int oneCardAwayStraight() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
 }
