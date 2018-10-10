@@ -33,15 +33,18 @@ public class GameTest {
 		int GameNumber = 0;
 		for(Game g: Games) {
 			GameNumber++;
-			System.out.println("---------------------------------------");
+			System.out.println("------------------------------------------------------------------------------");
 			System.out.println("Welcome to Poker Game #" + GameNumber);
+			System.out.println("------------------------------------------------------------------------------");
+
+			System.out.println("[HandToDefeat]: " + g.getHandtoBeat());
+			System.out.println("[AIP]: " + g.getHandAIP());
+			System.out.println("Extra Cards: " + g.getExtraCards() + "\n");
 			
-			System.out.println("AIP's Hand : " + g.getHandAIP());
-			System.out.println("Hand to Defeat: " + g.getHandtoBeat());
-			System.out.println("Extra Cards: " + g.getExtraCards());
+			System.out.println("[HandToDefeat] has a " + g.getHandtoBeat().evaluateHand());
+			System.out.println("[AIP] has a " + g.getHandAIP().evaluateHand() + "\n");
 			
-			System.out.println("\nAIP is applying its special strategy. . .");
-			System.out.println("AIP chooses to " + g.exchangeOrNot());
+			System.out.println("[AIP] chooses to " + g.exchangeOrNot());
 		}
 	}
 }

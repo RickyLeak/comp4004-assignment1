@@ -33,8 +33,7 @@ public class Game {
 
 	public String exchangeOrNot() {
 		String evaluation = handAIP.evaluateHand();
-		System.out.println("AIP has a " + evaluation);
-		
+
 		if(evaluation.equals("Royal Flush"))	return "NOT EXCHANGE";
 		if(evaluation.equals("Straight Flush"))	return "NOT EXCHANGE";
 		if(evaluation.equals("Four Of A Kind"))	return "NOT EXCHANGE";
