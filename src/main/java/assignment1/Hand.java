@@ -652,4 +652,9 @@ public class Hand {
 		}
 		return false;
 	}
+
+	public boolean singlePair() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

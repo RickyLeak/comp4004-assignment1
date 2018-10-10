@@ -25,7 +25,7 @@ public class HandTest {
 	@Test
 	public void createHand() throws FileNotFoundException {
 		assertTrue(hand.getCards().size() == 5);
-		System.out.println(hand.toString());
+		//System.out.println(hand.toString());
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class HandTest {
 	public void evaluateHandTest() throws FileNotFoundException{
 		String evaluated = "";
 		evaluated = hand.evaluateHand();
-		System.out.println(evaluated);
+		//System.out.println(evaluated);
 	}
 	
 	@Test
@@ -163,9 +163,20 @@ public class HandTest {
 	public void distinctPairsTest() throws FileNotFoundException{
 		boolean result = hand.distinctPairs();
 		if(result) {
-			System.out.println("There are 2 distinct pairs");
+			//System.out.println("There are 2 distinct pairs");
 		}else {
-			System.out.println("There is not 2 distinct pairs");
+			//System.out.println("There is not 2 distinct pairs");
+		}
+		assertTrue(result);
+	}
+	
+	@Test
+	public void singlePairTest() throws FileNotFoundException{
+		boolean result = hand.singlePair();
+		if(result) {
+			System.out.println("There is a single pair");
+		}else {
+			System.out.println("Cannot find a single pair");
 		}
 		assertTrue(result);
 	}
