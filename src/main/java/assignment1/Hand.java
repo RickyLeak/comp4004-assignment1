@@ -518,4 +518,9 @@ public class Hand {
 		
 		return theCard;
 	}
+
+	public boolean threeCardsSameSuit() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

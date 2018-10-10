@@ -119,10 +119,21 @@ public class HandTest {
 	public void oneCardAwayStraightTest() throws FileNotFoundException{
 		int result = hand.oneCardAwayStraight();
 		if(result > 0) {
-			System.out.println("The card to switch out is: " + result);
+			//System.out.println("The card to switch out is: " + result);
 		}else {
-			System.out.println("The input cards do not qualify for oneCardAwayStraight");
+			//System.out.println("The input cards do not qualify for oneCardAwayStraight");
 		}
 		assertTrue(result > 0);
+	}
+	
+	@Test
+	public void threeCardsSameSuitTest() throws FileNotFoundException{
+		boolean result = hand.threeCardsSameSuit();
+		if(result) {
+			System.out.println("The hand has 3 cards of same suit");
+		}else {
+			System.out.println("The hand does not have 3 cards same suit");
+		}
+		assertTrue(result);
 	}
 }
