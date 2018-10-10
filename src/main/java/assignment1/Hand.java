@@ -297,7 +297,55 @@ public class Hand {
 	}
 
 	public int oneCardAwayStraightFlush() {
-		// TODO Auto-generated method stub
-		return -1;
+		int theCard = -1;
+		
+		//Create a sorted version of the card values
+		ArrayList<Integer> easyArray = new ArrayList<Integer>();
+		for(int i = 0; i < cards.size(); i++) {
+			String temp = cards.get(i).getValue();
+			if(temp.equals("A")) {
+				temp = "1";
+			}else if(temp.equals("K")) {
+				temp = "13";
+			}else if(temp.equals("Q")) {
+				temp = "12";
+			}else if(temp.equals("J")) {
+				temp = "11";
+			}
+			easyArray.add(Integer.parseInt(temp));
+		}
+		
+		//Apply sorting
+		Collections.sort(easyArray);
+		
+		//Check to see if the element needs to be removed from front or the back
+		//We are to assume that we only handle easy straights such as 1234+x NOT 1x345
+		int easyArrayElementStorage = easyArray.get(0);
+		theCard = easyArray.get(0);
+		easyArray.remove(0);
+		
+		for(int j = 0; j < easyArray.size()-1; j++) {
+			if(easyArray.get(j) != (easyArray.get(j+1) - 1)) {
+				theCard = -1;
+			}
+		}
+		
+		//If a straight is possible without first OR last card check the suits
+		if(theCard > 0) {
+			ArrayList<Card> cardsCopy = cards;
+			for(Card c: cardsCopy) {
+				if(Integer.parseInt(c.getValue()) == theCard) {
+					cardsCopy.remove(c);
+					break;
+				}
+			}
+			
+			for(Card c: cardsCopy) {
+				if(!c.getSuit().equals(cardsCopy.get(0).getSuit())) {
+					theCard = -2;
+				}
+			}
+		}
+		return theCard;
 	}
 }
