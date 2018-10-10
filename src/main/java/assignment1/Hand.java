@@ -421,7 +421,101 @@ public class Hand {
 	}
 
 	public int oneCardAwayStraight() {
-		// TODO Auto-generated method stub
-		return -1;
+		int theCard = -1;
+		
+		//Create a sorted version of the card values
+		ArrayList<Integer> easyArray = new ArrayList<Integer>();
+		for(int i = 0; i < cards.size(); i++) {
+			String temp = cards.get(i).getValue();
+			if(temp.equals("A")) {
+				temp = "1";
+			}else if(temp.equals("K")) {
+				temp = "13";
+			}else if(temp.equals("Q")) {
+				temp = "12";
+			}else if(temp.equals("J")) {
+				temp = "11";
+			}
+			easyArray.add(Integer.parseInt(temp));
+		}
+		
+		//Apply sorting
+		Collections.sort(easyArray);
+		
+		//Check to see if the element needs to be removed from front or the back
+		//We are to assume that we only handle easy straights such as 1234+x NOT 1x345
+		int easyArrayElementStorage = easyArray.get(0);
+		theCard = easyArray.get(0);
+		easyArray.remove(0);
+		
+		for(int j = 0; j < easyArray.size()-1; j++) {
+			if(easyArray.get(j) != (easyArray.get(j+1) - 1)) {
+				theCard = -1;
+			}
+		}
+		
+		//If removing first element couldn't make a straight, try removing last element
+		if(theCard < 0) {
+			easyArray.add(0, easyArrayElementStorage);
+		theCard = easyArray.get(easyArray.size()-1);
+			easyArray.remove(easyArray.size()-1);
+			
+			for(int j = 0; j < easyArray.size()-1; j++) {
+				if(easyArray.get(j) != (easyArray.get(j+1) - 1)) {
+						theCard = -1;
+				}
+			}
+		}
+		
+		//If theCard is still negative value and its saying theres no chance for a possible straight
+		//Make sure to use the ace as its alternate value and perform all checks again
+		if(theCard < 0) {
+			//Create a sorted version of the card values
+			ArrayList<Integer> easyArray2 = new ArrayList<Integer>();
+			for(int i = 0; i < cards.size(); i++) {
+				String temp = cards.get(i).getValue();
+				if(temp.equals("A")) {
+					temp = "14";
+				}else if(temp.equals("K")) {
+					temp = "13";
+				}else if(temp.equals("Q")) {
+					temp = "12";
+				}else if(temp.equals("J")) {
+					temp = "11";
+				}
+				easyArray2.add(Integer.parseInt(temp));
+			}
+			
+			//Apply sorting
+			Collections.sort(easyArray2);
+			
+			//Check to see if the element needs to be removed from front or the back
+			//We are to assume that we only handle easy straights such as 1234+x NOT 1x345
+			int easyArrayElementStorage2 = easyArray2.get(0);
+			theCard = easyArray2.get(0);
+			easyArray2.remove(0);
+			
+			for(int j = 0; j < easyArray2.size()-1; j++) {
+				if(easyArray2.get(j) != (easyArray2.get(j+1) - 1)) {
+					theCard = -1;
+				}
+			}
+			
+			//If removing first element couldn't make a straight, try removing last element
+			if(theCard < 0) {
+				easyArray2.add(0, easyArrayElementStorage2);
+			theCard = easyArray2.get(easyArray2.size()-1);
+			easyArray2.remove(easyArray2.size()-1);
+				
+				for(int j = 0; j < easyArray2.size()-1; j++) {
+					if(easyArray2.get(j) != (easyArray2.get(j+1) - 1)) {
+							theCard = -1;
+					}
+				}
+			}
+		}
+		
+		
+		return theCard;
 	}
 }
