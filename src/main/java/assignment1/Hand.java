@@ -654,7 +654,7 @@ public class Hand {
 	}
 
 	public boolean singlePair() {
-		// TODO Auto-generated method stub
-		return false;
+		//Our hasPair() function already deals with finding a pair regardless of positioning
+		return this.hasPair();
 	}
 }
