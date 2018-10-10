@@ -141,9 +141,20 @@ public class HandTest {
 	public void exactlyThreeCardsSameRankTest() throws FileNotFoundException{
 		boolean result = hand.exactlyThreeCardsSameRank();
 		if(result) {
-			System.out.println("The hand has exactly 3 cards of same rank");
+			//System.out.println("The hand has exactly 3 cards of same rank");
 		}else {
-			System.out.println("The hand does not have exactly 3 cards same rank");
+			//System.out.println("The hand does not have exactly 3 cards same rank");
+		}
+		assertTrue(result);
+	}
+	
+	@Test
+	public void exactlyThreeCardsSequenceTest() throws FileNotFoundException{
+		boolean result = hand.exactlyThreeCardsSequence();
+		if(result) {
+			System.out.println("The hand has exactly 3 cards in sequence");
+		}else {
+			System.out.println("The hand does not have exactly 3 in sequence");
 		}
 		assertTrue(result);
 	}

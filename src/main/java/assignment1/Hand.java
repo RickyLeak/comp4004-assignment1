@@ -581,4 +581,9 @@ public class Hand {
 		}
 		return exactlyThree;
 	}
+
+	public boolean exactlyThreeCardsSequence() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
