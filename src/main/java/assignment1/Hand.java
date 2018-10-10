@@ -330,11 +330,36 @@ public class Hand {
 			}
 		}
 		
+		//If removing first element couldn't make a straight, try removing last element
+		if(theCard < 0) {
+			easyArray.add(0, easyArrayElementStorage);
+			theCard = easyArray.get(easyArray.size()-1);
+			easyArray.remove(easyArray.size()-1);
+			
+			for(int j = 0; j < easyArray.size()-1; j++) {
+				if(easyArray.get(j) != (easyArray.get(j+1) - 1)) {
+					theCard = -1;
+				}
+			}
+		}
+		
 		//If a straight is possible without first OR last card check the suits
 		if(theCard > 0) {
 			ArrayList<Card> cardsCopy = cards;
 			for(Card c: cardsCopy) {
 				if(c.getValue().equals("A") && (theCard == 1)) {
+					cardsCopy.remove(c);
+					break;
+				}
+				if(c.getValue().equals("K") && (theCard == 13)) {
+					cardsCopy.remove(c);
+					break;
+				}
+				if(c.getValue().equals("Q") && (theCard == 12)) {
+					cardsCopy.remove(c);
+					break;
+				}
+				if(c.getValue().equals("J") && (theCard == 11)) {
 					cardsCopy.remove(c);
 					break;
 				}
