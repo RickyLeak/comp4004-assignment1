@@ -263,7 +263,36 @@ public class Hand {
 	}
 
 	public int oneCardAwayRoyalFlush() {
-		// TODO Auto-generated method stub
-		return -1;
+		ArrayList<String> royalFlushRequirements = new ArrayList<String>();
+		ArrayList<String> suitList = new ArrayList<String>();
+		int theCard = -1;
+		
+		royalFlushRequirements.add("A");
+		royalFlushRequirements.add("K");
+		royalFlushRequirements.add("Q");
+		royalFlushRequirements.add("J");
+		royalFlushRequirements.add("10");
+		
+		//Filter out the card, cross off each element found in RoyalFlushRequirements
+		for(Card c:cards) {
+			int currentIndex = royalFlushRequirements.indexOf(c.getValue());
+			if(currentIndex != -1) {
+				royalFlushRequirements.remove(currentIndex);
+				suitList.add(c.getSuit());
+			}else {
+				theCard = Integer.parseInt(c.getValue());
+			}
+		}
+		
+		//Check for suits to be all the same
+		for(int i = 0; i < suitList.size()-1; i++) {
+			if(suitList.get(i).equals(suitList.get(i+1))) {
+				
+			}else {
+				theCard = -2;
+			}
+		}
+		
+		return theCard;
 	}
 }
