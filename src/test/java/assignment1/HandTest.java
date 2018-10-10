@@ -130,7 +130,7 @@ public class HandTest {
 	public void threeCardsSameSuitTest() throws FileNotFoundException{
 		boolean result = hand.threeCardsSameSuit();
 		if(result) {
-			System.out.println("The hand has 3 cards of same suit");
+			System.out.println("The hand has exactly 3 cards of same suit");
 		}else {
 			System.out.println("The hand does not have 3 cards same suit");
 		}

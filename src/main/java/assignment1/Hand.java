@@ -29,6 +29,16 @@ public class Hand {
 		}
 		return -1;
 	}
+	
+	private int findOtherPairSuit(Card card, ArrayList<Card> inputCards) {
+		for(int i = 0; i < inputCards.size(); i++) {
+			if(card.getSuit().equals(inputCards.get(i).getSuit())) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	//Checks to see if a pair exists within the hand
 	public boolean hasPair() {
 		for(int i = 0; i < cards.size(); i++) {
@@ -520,7 +530,26 @@ public class Hand {
 	}
 
 	public boolean threeCardsSameSuit() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean exactlyThree = false;
+		for(int i = 0; i < cards.size(); i++){
+			ArrayList<Card> tempCards = new ArrayList<Card>(cards);
+			Card tempCard = tempCards.get(i);
+			tempCards.remove(i); //remove the one you will compare with
+			
+			//Return true if there is a unique pair
+			int otherPair = findOtherPairSuit(tempCard, tempCards);
+			if(otherPair != -1) {
+				tempCards.remove(otherPair);
+				otherPair = findOtherPairSuit(tempCard, tempCards);
+				if(otherPair != -1) {
+					exactlyThree = true;
+					tempCards.remove(otherPair);
+					if(findOtherPairSuit(tempCard, tempCards) != -1){
+						exactlyThree = false;
+					}
+				}
+			}
+		}
+		return exactlyThree;
 	}
 }
