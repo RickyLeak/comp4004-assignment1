@@ -377,4 +377,9 @@ public class Hand {
 		}
 		return theCard;
 	}
+
+	public int oneCardAwayFlush() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
 }
