@@ -659,4 +659,9 @@ public class Hand {
 		//Our hasPair() function already deals with finding a pair regardless of positioning
 		return this.hasPair();
 	}
+
+	public Card exchange(Hand extraCards) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

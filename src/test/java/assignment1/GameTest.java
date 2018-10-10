@@ -45,6 +45,13 @@ public class GameTest {
 			System.out.println("[AIP] has a " + g.getHandAIP().evaluateHand() + "\n");
 			
 			System.out.println("[AIP] chooses to " + g.exchangeOrNot());
+			Card discard = g.getHandAIP().exchange(g.getExtraCards());
+			assertNotNull(discard);
+			
+			System.out.println("\nHands have been updated. . . \n");
+			System.out.println("[HandToDefeat]: " + g.getHandtoBeat());
+			System.out.println("[AIP]: " + g.getHandAIP());
+			System.out.println("Extra Cards: " + g.getExtraCards() + "\n");
 		}
 	}
 }
