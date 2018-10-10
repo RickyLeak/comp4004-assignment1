@@ -295,4 +295,9 @@ public class Hand {
 		
 		return theCard;
 	}
+
+	public int oneCardAwayStraightFlush() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
 }
