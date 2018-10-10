@@ -379,7 +379,44 @@ public class Hand {
 	}
 
 	public int oneCardAwayFlush() {
-		// TODO Auto-generated method stub
-		return -1;
+		int theCard = -1;
+		int s_Count = 0;
+		int c_Count = 0;
+		int h_Count = 0;
+		int d_Count = 0;
+		
+		//Count how many of each suit appears
+		for(Card c: cards) {
+			if(c.getSuit().equals("S")) s_Count++;
+			else if(c.getSuit().equals("C")) c_Count++;
+			else if(c.getSuit().equals("H")) h_Count++;
+			else if(c.getSuit().equals("D")) d_Count++;
+		}
+		
+		//If there are a count of 4 of any suit, turn that suit into the one to keep
+		String suitToKeep = "";
+		if(s_Count == 4) suitToKeep = "S";
+		else if(c_Count == 4) suitToKeep = "C";
+		else if(h_Count == 4) suitToKeep = "H";
+		else if(d_Count == 4) suitToKeep = "D";
+		else {
+			return -3;
+		}
+		
+		//Perform search based on suitToKeep
+		for(Card c: cards) {
+			if(!c.getSuit().equals(suitToKeep)) {
+				int helper = -2;
+				if(c.getValue().equals("A")) helper = 14;
+				else if(c.getValue().equals("K")) helper = 13;
+				else if(c.getValue().equals("Q")) helper = 12;
+				else if(c.getValue().equals("J")) helper = 11;
+				else {
+					helper = Integer.parseInt(c.getValue());
+				}
+				theCard = helper;
+			}
+		}
+		return theCard;
 	}
 }
