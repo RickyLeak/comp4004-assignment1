@@ -552,4 +552,9 @@ public class Hand {
 		}
 		return exactlyThree;
 	}
+
+	public boolean exactlyThreeCardsSameRank() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
