@@ -141,9 +141,9 @@ public class HandTest {
 	public void exactlyThreeCardsSameRankTest() throws FileNotFoundException{
 		boolean result = hand.exactlyThreeCardsSameRank();
 		if(result) {
-			//System.out.println("The hand has exactly 3 cards of same rank");
+			System.out.println("The hand has exactly 3 cards of same rank");
 		}else {
-			//System.out.println("The hand does not have exactly 3 cards same rank");
+			System.out.println("The hand does not have exactly 3 cards same rank");
 		}
 		assertTrue(result);
 	}

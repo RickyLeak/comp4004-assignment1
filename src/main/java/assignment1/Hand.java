@@ -290,6 +290,10 @@ public class Hand {
 				royalFlushRequirements.remove(currentIndex);
 				suitList.add(c.getSuit());
 			}else {
+				if(c.getValue().equals("A")) return -1;
+				if(c.getValue().equals("K")) return -1;
+				if(c.getValue().equals("Q")) return -1;
+				if(c.getValue().equals("J")) return -1;
 				theCard = Integer.parseInt(c.getValue());
 			}
 		}
@@ -554,7 +558,27 @@ public class Hand {
 	}
 
 	public boolean exactlyThreeCardsSameRank() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean exactlyThree = false;
+		
+		for(int i = 0; i < cards.size(); i++){
+			ArrayList<Card> tempCards = new ArrayList<Card>(cards);
+			Card tempCard = tempCards.get(i);
+			tempCards.remove(i); //remove the one you will compare with
+			
+			//Return true if there is a unique pair
+			int otherPair = findOtherPair(tempCard, tempCards);
+			if(otherPair != -1) {
+				tempCards.remove(otherPair);
+				otherPair = findOtherPair(tempCard, tempCards);
+				if(otherPair != -1) {
+					tempCards.remove(otherPair);
+					exactlyThree = true;
+					if(findOtherPair(tempCard, tempCards) != -1){
+						exactlyThree = false;
+					}
+				}
+			}
+		}
+		return exactlyThree;
 	}
 }
