@@ -334,6 +334,10 @@ public class Hand {
 		if(theCard > 0) {
 			ArrayList<Card> cardsCopy = cards;
 			for(Card c: cardsCopy) {
+				if(c.getValue().equals("A") && (theCard == 1)) {
+					cardsCopy.remove(c);
+					break;
+				}
 				if(Integer.parseInt(c.getValue()) == theCard) {
 					cardsCopy.remove(c);
 					break;
