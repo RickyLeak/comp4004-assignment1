@@ -87,8 +87,9 @@ public class HandTest {
 	
 	@Test
 	public void oneCardAwayRoyalFlushTest() throws FileNotFoundException{
-		assertTrue(hand.oneCardAwayRoyalFlush() > 0);
-		if(hand.oneCardAwayRoyalFlush() > 0) {
+		Card card = hand.oneCardAwayRoyalFlush();
+		assertTrue(Integer.parseInt(card.getValue()) > 0);
+		if(Integer.parseInt(card.getValue()) > 0) {
 			//System.out.println("The card to switch out is : " + hand.oneCardAwayRoyalFlush());
 		}
 	}

@@ -272,10 +272,11 @@ public class Hand {
 		}
 	}
 
-	public int oneCardAwayRoyalFlush() {
+	public Card oneCardAwayRoyalFlush() {
 		ArrayList<String> royalFlushRequirements = new ArrayList<String>();
 		ArrayList<String> suitList = new ArrayList<String>();
-		int theCard = -1;
+		int theCardValue = -1;
+		String theCardSuit = "";
 		
 		royalFlushRequirements.add("A");
 		royalFlushRequirements.add("K");
@@ -290,25 +291,30 @@ public class Hand {
 				royalFlushRequirements.remove(currentIndex);
 				suitList.add(c.getSuit());
 			}else {
-				if(c.getValue().equals("A")) return -1;
-				if(c.getValue().equals("K")) return -1;
-				if(c.getValue().equals("Q")) return -1;
-				if(c.getValue().equals("J")) return -1;
-				theCard = Integer.parseInt(c.getValue());
+				theCardSuit = c.getSuit();
+				if(c.getValue().equals("A")) theCardValue = 14;
+				else if(c.getValue().equals("K")) theCardValue = 13;
+				else if(c.getValue().equals("Q")) theCardValue = 12;
+				else if(c.getValue().equals("J")) theCardValue = 11;
+				else theCardValue = Integer.parseInt(c.getValue());
+
 			}
 		}
 		
-		if(suitList.size() != 4) return -1;
+		if(suitList.size() != 4) theCardValue = -1;
 		
 		//Check for suits to be all the same
 		for(int i = 0; i < suitList.size()-1; i++) {
 			if(suitList.get(i).equals(suitList.get(i+1))) {
 				
 			}else {
-				theCard = -2;
+				theCardValue = -2;
 			}
 		}
 		
+		String cardString = theCardSuit;
+		cardString += theCardValue;
+		Card theCard = new Card(cardString);
 		return theCard;
 	}
 
@@ -661,7 +667,55 @@ public class Hand {
 	}
 
 	public Card exchange(Hand extraCards) {
-		// TODO Auto-generated method stub
+		String evaluation = this.evaluateHand();
+		Card emptyCard = new Card("  ");
+
+		if(evaluation.equals("Royal Flush"))	return emptyCard;
+		if(evaluation.equals("Straight Flush"))	return emptyCard;
+		if(evaluation.equals("Four Of A Kind"))	return emptyCard;
+		if(evaluation.equals("Full House"))		return emptyCard;
+		if(evaluation.equals("Flush"))			return emptyCard;
+		if(evaluation.equals("Straight"))		return emptyCard;
+		
+		Card result = this.oneCardAwayRoyalFlush();
+		if(Integer.parseInt(result.getValue()) > 0) {
+			String cardToRemove = result.getSuit();
+			
+			if(Integer.parseInt(result.getValue()) == 1)		cardToRemove += "A";
+			else if(Integer.parseInt(result.getValue()) == 14)	cardToRemove += "A";
+			else if(Integer.parseInt(result.getValue()) == 13)	cardToRemove += "K";
+			else if(Integer.parseInt(result.getValue()) == 12)	cardToRemove += "Q";
+			else if(Integer.parseInt(result.getValue()) == 11)	cardToRemove += "J";
+			else {
+				cardToRemove += Integer.parseInt(result.getValue());
+			}
+			
+			Card discard = new Card(cardToRemove);
+			for(Card c:cards) {
+				if(c.getSuit().equals(discard.getSuit())){
+					if(c.getValue().equals(discard.getValue())){
+						cards.remove(c);
+						if(extraCards.getCards().size() > 0) {
+							Card returnCard = extraCards.getCards().get(0);
+							cards.add(returnCard);
+							extraCards.getCards().remove(0);
+							return returnCard;
+						}
+					}
+				}
+			}
+		}
+		/*
+		if(handAIP.oneCardAwayStraightFlush()>0)	return "EXCHANGE";
+		if(handAIP.hasTriple())						return "EXCHANGE";
+		if(handAIP.oneCardAwayFlush()>0)			return "EXCHANGE";
+		if(handAIP.oneCardAwayStraight()>0)			return "EXCHANGE";
+		
+		if(handAIP.threeCardsSameSuit())			return "EXCHANGE";
+		if(handAIP.exactlyThreeCardsSequence())		return "EXCHANGE";
+		if(handAIP.hasDoublePair())					return "EXCHANGE";
+		if(handAIP.hasPair())						return "EXCHANGE";
+		*/
 		return null;
 	}
 }

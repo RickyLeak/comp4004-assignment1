@@ -41,7 +41,7 @@ public class Game {
 		if(evaluation.equals("Flush"))			return "NOT EXCHANGE";
 		if(evaluation.equals("Straight"))		return "NOT EXCHANGE";
 		
-		if(handAIP.oneCardAwayRoyalFlush()>0)		return "EXCHANGE";
+		if(Integer.parseInt(handAIP.oneCardAwayRoyalFlush().getValue()) > 0)		return "EXCHANGE";
 		if(handAIP.oneCardAwayStraightFlush()>0)	return "EXCHANGE";
 		if(handAIP.hasTriple())						return "EXCHANGE";
 		if(handAIP.oneCardAwayFlush()>0)			return "EXCHANGE";
