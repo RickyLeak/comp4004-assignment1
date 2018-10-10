@@ -152,9 +152,20 @@ public class HandTest {
 	public void exactlyThreeCardsSequenceTest() throws FileNotFoundException{
 		boolean result = hand.exactlyThreeCardsSequence();
 		if(result) {
-			System.out.println("The hand has exactly 3 cards in sequence");
+			//System.out.println("The hand has exactly 3 cards in sequence");
 		}else {
-			System.out.println("The hand does not have exactly 3 in sequence");
+			//System.out.println("The hand does not have exactly 3 in sequence");
+		}
+		assertTrue(result);
+	}
+	
+	@Test
+	public void distinctPairsTest() throws FileNotFoundException{
+		boolean result = hand.distinctPairs();
+		if(result) {
+			System.out.println("There are 2 distinct pairs");
+		}else {
+			System.out.println("There is not 2 distinct pairs");
 		}
 		assertTrue(result);
 	}

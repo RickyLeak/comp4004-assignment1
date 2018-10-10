@@ -627,4 +627,9 @@ public class Hand {
 		}
 		return stillStraight;
 	}
+
+	public boolean distinctPairs() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
