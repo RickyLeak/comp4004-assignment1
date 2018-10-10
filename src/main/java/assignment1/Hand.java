@@ -629,7 +629,27 @@ public class Hand {
 	}
 
 	public boolean distinctPairs() {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < cards.size(); i++) {
+			ArrayList<Card> tempCards = new ArrayList<Card>(cards);
+			Card firstPair1 = tempCards.get(i);
+			tempCards.remove(i); //remove the one you will compare with
+			
+			//Return true if there is a unique pair
+			int firstPair2 = findOtherPair(firstPair1, tempCards);
+			if(firstPair2 != -1) {
+				tempCards.remove(firstPair2);
+				
+				for(int z = 0; z < tempCards.size(); z++) {
+					Card tempCard = tempCards.get(i);
+					tempCards.remove(z); //remove the one you will compare with
+					
+					//Return true if there is a unique pair
+					if(findOtherPair(tempCard, tempCards) != -1) {
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
 }
