@@ -31,6 +31,8 @@ public class GameTest {
 	public void test() throws FileNotFoundException {
 		setUpGame();
 		int GameNumber = 0;
+		Scanner scan = new Scanner(System.in);
+		
 		for(Game g: Games) {
 			GameNumber++;
 			System.out.println("------------------------------------------------------------------------------");
@@ -44,7 +46,9 @@ public class GameTest {
 			System.out.println("[HandToDefeat] has a " + g.getHandtoBeat().evaluateHand());
 			System.out.println("[AIP] has a " + g.getHandAIP().evaluateHand() + "\n");
 			
+			
 			System.out.println("[AIP] chooses to " + g.exchangeOrNot());
+			/*
 			Card discard = g.getHandAIP().exchange(g.getExtraCards());
 			assertNotNull(discard);
 			
@@ -52,6 +56,9 @@ public class GameTest {
 			System.out.println("[HandToDefeat]: " + g.getHandtoBeat());
 			System.out.println("[AIP]: " + g.getHandAIP());
 			System.out.println("Extra Cards: " + g.getExtraCards() + "\n");
+			*/
+			
 		}
+		scan.close();
 	}
 }
